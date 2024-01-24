@@ -364,3 +364,36 @@ namespace apartment {
 	}
 }
 
+int main() {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	apartment::ApartmentDataBase ApartmentDB;
+
+	// Тестирование функций ввода данных
+	std::cout << "Ввод дома" << std::endl;
+	apartment::House house = ApartmentDB.InputHouseFromUser();
+	std::cout << "Ввод подъезда" << std::endl;
+	apartment::Doorway doorway = ApartmentDB.InputDoorwayFromUser();
+	std::cout << "Ввод консьержа" << std::endl;
+	apartment::Concierge concierge = ApartmentDB.InputConciergeFromUser();
+	std::cout << "Ввод квартиры" << std::endl;
+	apartment::Flat flat = ApartmentDB.InputFlatFromUser();
+	std::cout << "Ввод владельца квартиры" << std::endl;
+	apartment::Owner owner = ApartmentDB.InputOwnerFromUser();
+
+	// Добавление данных в базу данных
+
+	ApartmentDB.AddHouse(house);
+	ApartmentDB.AddDoorway(doorway);
+	ApartmentDB.AddConcierge(concierge);
+	ApartmentDB.AddFlat(flat);
+	ApartmentDB.AddOwner(owner);
+
+	// Тестирование функций вывода данных
+
+	ApartmentDB.PrintHouseList();
+	ApartmentDB.PrintDoorwayList();
+	ApartmentDB.PrintConciergeList();
+	ApartmentDB.PrintFlatList();
+	ApartmentDB.PrintOwnerList();
+
