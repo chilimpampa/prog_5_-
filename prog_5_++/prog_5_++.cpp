@@ -200,16 +200,3 @@ namespace apartment {
 		}
 	}
 
-	Owner ApartmentDataBase::InputOwnerFromUser() {
-		std::string fio;
-		std::string name;
-
-		std::cout << " ";
-		std::cout << "Введите фамилию собственника: ";
-		std::getline(std::cin, fio);
-
-		std::cout << "Введите имя собственника: ";
-		std::getline(std::cin, name);
-
-		return Owner(fio, name);
-	}
