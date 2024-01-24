@@ -397,3 +397,6 @@ int main() {
 	ApartmentDB.PrintFlatList();
 	ApartmentDB.PrintOwnerList();
 
+	// Статические методы
+	std::cout << "Общее количество владельцев: " << Owner::GetTotalOwners() << std::endl;
+	std::cout << "Общее количество квартир: " << ApartmentDataBase::GetTotalApartments() << std::endl;
