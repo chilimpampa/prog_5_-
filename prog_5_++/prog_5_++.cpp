@@ -400,3 +400,21 @@ int main() {
 	// Статические методы
 	std::cout << "Общее количество владельцев: " << Owner::GetTotalOwners() << std::endl;
 	std::cout << "Общее количество квартир: " << ApartmentDataBase::GetTotalApartments() << std::endl;
+
+	try
+	{
+		// Добавление квартиры с ошибочными данными (например, отрицательной площадью)
+		ApartmentDB.AddFlat(Flat("Улица", 1, 2, -50));
+
+		// Обработка ошибок ввода данных
+		cout << "Введите данные для еще одной квартиры: " << endl;
+		Flat^ newFlat = ApartmentDB.InputFlatFromUser(); // Метод может сгенерировать исключение при некорректных данных
+		ApartmentDB.AddFlat(newFlat);
+	}
+	catch (const std::exception&)
+	{
+		cerr << "Произошла ошибка: " << e.what() << endl;
+	}
+
+	return 0;
+}
